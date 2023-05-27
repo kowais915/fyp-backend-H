@@ -5,12 +5,22 @@ const router = require("./routes/apiRoutes");
 
 const app = express();
 app.use(express.json());
+const PORT = 3000 || process.env.PORT;
 
 
-// routes
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-})
+// connect to mongodb
+
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("Connected to MongoDB")
+    // routes
+    app.listen(3000, () => {
+      console.log("Server running on port 3000");
+    })
+
+
+  })
+
 
 // routes
 app.use("/api", router);
