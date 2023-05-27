@@ -5,7 +5,8 @@ const {
 
 // get all resources
 async function getAll (req, res)  {
-    res.json({msg: " This is all you have in your database"})
+    const user = await User.find({})
+    res.status(200).json(user)
 }
 
 // post a resource
