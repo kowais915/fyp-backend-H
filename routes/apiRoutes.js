@@ -1,33 +1,31 @@
 const express = require("express");
 const router = express.Router();
+const {
+    getAll,
+    postResource,
+    getSingle,
+    updateSingle,
+    deleteSingle
+
+} = require("../controller/apiController.js");
 
 
 
 
 // get all
-router.get('/', (req, res) => {
-    res.json({msg: " This is all you have in your database"})
-})
+router.get('/', getAll)
 
 
 // post
-router.post('/', (req, res) => {
-    res.json({msg: " You posted a resource to the database."})
-})
+router.post('/', postResource)
 
 // get a single resource
-router.post("/:id", (req, res) => {
-    res.json({msg: "You got a single resource"})
-})
+router.post("/:id", getSingle)
 
 // update a resource
-router.patch("/:id", (req, res) => {
-    res.json({msg: "You updated a resource"})
-})
+router.patch("/:id", updateSingle)
 
 // delete a resource
-router.delete("/:id", (req, res) => {
-    res.json({msg: "You deleted a resource"})
-})
+router.delete("/:id", deleteSingle)
 
 module.exports = router;

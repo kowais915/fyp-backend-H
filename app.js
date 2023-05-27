@@ -13,7 +13,7 @@ const PORT = 3000 || process.env.PORT;
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB")
-    // routes
+    // listen on port
     app.listen(3000, () => {
       console.log("Server running on port 3000");
     })
@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URI)
 // routes
 app.use("/api", router);
 
+
 app.get("/", (req, res) => {
-  res.json({msg:"Welcome to the api!"})
+  res.json({msg:"Welcome to the FYP Management Server"})
 })
