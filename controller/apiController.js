@@ -47,26 +47,16 @@ async function getSingle (req, res) {
     // checking the id's validity
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json(
-            {
-                msg: "404! Oops! Please use a valid ID. "
-            }
-        )
+        return res.status(404).json({msg: "404! Oops! Please use a valid ID. "})
     }
-    const singleSession = await User.findById(id);
+    const singleUser = await User.findById(id);
 
-    if (!singleSession){
+    if (!singleUser){
 
-       return res.status(404).json(
-            {
-                error: "404. We could not find what you were looking for"
-            
-            
-            }
-        )
+       return res.status(404).json({error: "404. We could not find what you were looking for"})
     }
 
-    res.status(200).json(singleSession);
+    res.status(200).json(singleUser);
 }
 
 

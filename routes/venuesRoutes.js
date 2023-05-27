@@ -20,7 +20,7 @@ router.get('/', getAll)
 router.post('/', postResource)
 
 // get a single resource
-router.post("/:id", getSingle)
+router.get("/:id", getSingle)
 
 // update a resource
 router.patch("/:id", updateSingle)
