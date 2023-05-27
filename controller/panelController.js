@@ -20,18 +20,18 @@ const express = require("express");
 
 // get all resources
 async function getAll (req, res)  {
-    const user = await User.find({})
-    res.status(200).json(user)
+    const panel= await Panel.find({})
+    res.status(200).json(panel)
 }
 
 // post a resource
 
 async function postResource(req, res){
-    const {name, email, password, role} = req.body;
+    const {panelId, academicYear, facultyMembers} = req.body;
 
     try{
-        const user = await User.create({name, email, password, role})
-        res.status(200).json(user)
+        const pan = await Panel.create({panelId, academicYear, facultyMembers})
+        res.status(200).json(pan)
 
     }catch(err){
         res.status(400).json({msg:err.message})

@@ -20,18 +20,18 @@ const express = require("express");
 
 // get all resources
 async function getAll (req, res)  {
-    const user = await User.find({})
-    res.status(200).json(user)
+    const faculty = await Faculty.find({})
+    res.status(200).json(faculty)
 }
 
 // post a resource
 
 async function postResource(req, res){
-    const {name, email, password, role} = req.body;
+    const {domain} = req.body;
 
     try{
-        const user = await User.create({name, email, password, role})
-        res.status(200).json(user)
+        const fac = await Faculty.create({domain})
+        res.status(200).json(fac)
 
     }catch(err){
         res.status(400).json({msg:err.message})

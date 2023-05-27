@@ -1,7 +1,12 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const router = require("./routes/apiRoutes");
+const userRouter = require("./routes/apiRoutes");
+const adminRouter = require("./routes/adminRoutes");
+const facultyRouter = require("./routes/facultyRouter");
+const venueRouter = require("./routes/venuesRoutes")
+const panelRouter = require("./routes/panelRouter")
+const presEvalRouter = require("./routes/presEvalRouter")
 
 const app = express();
 app.use(express.json());
@@ -23,7 +28,13 @@ mongoose.connect(process.env.MONGODB_URI)
 
 
 // routes
-app.use("/api", router);
+app.use("/api/users", userRouter);
+app.use("/api/admin", adminRouter);
+app.use("/api/faculty", facultyRouter);
+app.use("/api/venue", venueRouter);
+app.use("/api/panels", panelRouter);
+app.use("/api/presEvals", presEvalRouter)
+
 
 
 app.get("/", (req, res) => {

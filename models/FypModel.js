@@ -93,7 +93,7 @@ const Venue = mongoose.model('Venue', venueSchema);
 const panelSchema = new mongoose.Schema({
     panelId: String,    // will generally be of the type A, B, C, etc.
     academicYear: Date,
-    facultyMembers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Faculty' }]
+    facultyMembers: []
 });
 
 const Panel = mongoose.model('Panel', panelSchema);
