@@ -40,3 +40,5 @@ app.use("/api/presEvals", presEvalRouter)
 app.get("/", (req, res) => {
   res.json({msg:"Welcome to the FYP Management Server"})
 })
+
+module.exports = app;
